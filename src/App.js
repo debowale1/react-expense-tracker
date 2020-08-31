@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import IncomeExpenseContainer from "./components/IncomeExpenseContainer";
 import List from "./components/List";
 import AddTransaction from "./components/AddTransaction";
+import DisplayTotalBalance from "./components/DisplayTotalBalance";
 import "./App.css";
 
 class App extends Component {
@@ -49,9 +50,7 @@ class App extends Component {
       <div className="App">
         <h2>Expense Tracker</h2>
         <div className="container">
-          <h4>Your Balance</h4>
-          <h1 id="balance">{this.displayTotalBalance(totalBalance)}</h1>
-          {/* <h1 id="balance">${totalBalance}</h1> */}
+          <DisplayTotalBalance totalBalance={totalBalance} />
           <IncomeExpenseContainer
             totalIncome={totalIncome}
             totalExpense={totalExpense}
@@ -64,15 +63,15 @@ class App extends Component {
     );
   }
 
-  displayTotalBalance(number) {
-    if (number > 0) {
-      return `$${number}`;
-    } else if (number < 0) {
-      return "-$" + Math.abs(number);
-    } else {
-      return "$0";
-    }
-  }
+  // displayTotalBalance(number) {
+  //   if (number > 0) {
+  //     return `$${number}`;
+  //   } else if (number < 0) {
+  //     return "-$" + Math.abs(number);
+  //   } else {
+  //     return "$0";
+  //   }
+  // }
 }
 
 export default App;
