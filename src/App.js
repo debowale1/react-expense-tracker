@@ -50,7 +50,8 @@ class App extends Component {
         <h2>Expense Tracker</h2>
         <div className="container">
           <h4>Your Balance</h4>
-          <h1 id="balance">${totalBalance}</h1>
+          <h1 id="balance">{this.displayTotalBalance(totalBalance)}</h1>
+          {/* <h1 id="balance">${totalBalance}</h1> */}
           <IncomeExpenseContainer
             totalIncome={totalIncome}
             totalExpense={totalExpense}
@@ -61,6 +62,16 @@ class App extends Component {
         </div>
       </div>
     );
+  }
+
+  displayTotalBalance(number) {
+    if (number > 0) {
+      return `$${number}`;
+    } else if (number < 0) {
+      return "-$" + Math.abs(number);
+    } else {
+      return "$0";
+    }
   }
 }
 
