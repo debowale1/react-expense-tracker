@@ -3,6 +3,7 @@ import IncomeExpenseContainer from "./components/IncomeExpenseContainer";
 import List from "./components/List";
 import AddTransaction from "./components/AddTransaction";
 import DisplayTotalBalance from "./components/DisplayTotalBalance";
+import Branding from "./components/Branding";
 import "./App.css";
 
 class App extends Component {
@@ -12,9 +13,9 @@ class App extends Component {
       { id: 2, description: "Cash", amount: 5200, type: "inc" },
       { id: 3, description: "Repairs", amount: -200, type: "exp" },
     ],
-    totalBalance: 0,
-    totalIncome: 0,
-    totalExpense: 0,
+    // totalBalance: 0,
+    // totalIncome: 0,
+    // totalExpense: 0,
   };
   //delete Item
   handleDelete = (id) => {
@@ -38,17 +39,20 @@ class App extends Component {
     //clear input
   };
   render() {
-    let { allItems, totalBalance, totalIncome, totalExpense } = this.state;
-    totalBalance = allItems.reduce((acc, cur) => (acc += cur.amount), 0);
+    const { allItems } = this.state;
+    const totalBalance = allItems.reduce((acc, cur) => (acc += cur.amount), 0);
     //All income
     const allIncomes = allItems.filter((item) => item.type === "inc");
-    totalIncome = allIncomes.reduce((acc, cur) => (acc += cur.amount), 0);
+    const totalIncome = allIncomes.reduce((acc, cur) => (acc += cur.amount), 0);
     //All expense
     const allExpense = allItems.filter((item) => item.type === "exp");
-    totalExpense = allExpense.reduce((acc, cur) => (acc += cur.amount), 0);
+    const totalExpense = allExpense.reduce(
+      (acc, cur) => (acc += cur.amount),
+      0
+    );
     return (
       <div className="App">
-        <h2>Expense Tracker</h2>
+        <Branding />
         <div className="container">
           <DisplayTotalBalance totalBalance={totalBalance} />
           <IncomeExpenseContainer
@@ -62,16 +66,6 @@ class App extends Component {
       </div>
     );
   }
-
-  // displayTotalBalance(number) {
-  //   if (number > 0) {
-  //     return `$${number}`;
-  //   } else if (number < 0) {
-  //     return "-$" + Math.abs(number);
-  //   } else {
-  //     return "$0";
-  //   }
-  // }
 }
 
 export default App;
