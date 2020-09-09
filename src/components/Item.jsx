@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 
 class Items extends Component {
-  // state = {};
-
   formatMoney(number) {
     return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
   }

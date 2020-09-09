@@ -17,22 +17,7 @@ class AddTransaction extends Component {
       <React.Fragment>
         <h3>Add new transaction</h3>
         {/* <form > */}
-        {/* <InputGroup
-            label="Description"
-            name="description"
-            placeholder="Enter text..."
-            value={description}
-            onChange={this.handleChange}
-          />
 
-          <InputGroup
-            label="Amount (negative - expense, positive - income)"
-            name="amount"
-            type="number"
-            placeholder="Enter Amount..."
-            value={amount}
-            onChange={this.handleChange}
-          /> */}
         <div className="form-control">
           <label htmlFor="description">Description</label>
           <input
