@@ -8,27 +8,19 @@ import { Provider } from "./context";
 import "./App.css";
 
 class App extends Component {
-  //delete Item
-  handleDelete = (id) => {
-    this.setState({
-      allItems: this.state.allItems.filter((item) => item.id !== id),
-    });
-  };
   //handle add item
-  handleClick = (description, amount) => {
-    const id = Math.floor(Math.random() * 1000000);
-    const type = +amount > 0 ? "inc" : "exp";
-    const newItem = {
-      id,
-      description,
-      amount: +amount,
-      type,
-    };
+  // handleClick = (description, amount) => {
+  //   const id = Math.floor(Math.random() * 1000000);
+  //   const type = +amount > 0 ? "inc" : "exp";
+  //   const newItem = {
+  //     id,
+  //     description,
+  //     amount: +amount,
+  //     type,
+  //   };
 
-    this.setState({ allItems: [...this.state.allItems, newItem] });
-
-    //clear input
-  };
+  //   this.setState({ allItems: [...this.state.allItems, newItem] });
+  // };
   render() {
     return (
       <Provider>
@@ -38,8 +30,8 @@ class App extends Component {
             <DisplayTotalBalance />
             <IncomeExpenseContainer />
             <h3>History</h3>
-            <List handleDelete={this.handleDelete} />
-            <AddTransaction handleClick={this.handleClick} />
+            <List />
+            <AddTransaction />
           </div>
         </div>
       </Provider>

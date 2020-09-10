@@ -38,23 +38,6 @@ class IncomeExpenseContainer extends Component {
         }}
       </Consumer>
     );
-
-    // return (
-    //   <div className="inc-exp-container">
-    //     <div>
-    //       <h4>Income</h4>
-    //       <p id="money-plus" className="money plus">
-    //         +${this.props.totalIncome}
-    //       </p>
-    //     </div>
-    //     <div>
-    //       <h4>Expense</h4>
-    //       <p id="money-minus" className="money minus">
-    //         -${Math.abs(this.props.totalExpense)}
-    //       </p>
-    //     </div>
-    //   </div>
-    // );
   }
 }
 

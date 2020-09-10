@@ -11,30 +11,13 @@ class List extends Component {
           return (
             <ul id="list" className="list">
               {allItems.map((list) => (
-                <Item
-                  key={list.id}
-                  item={list}
-                  handleDelete={this.props.handleDelete}
-                />
+                <Item key={list.id} item={list} />
               ))}
             </ul>
           );
         }}
       </Consumer>
     );
-
-    // const { lists } = this.props;
-    // return (
-    //   <ul id="list" className="list">
-    //     {lists.map((list) => (
-    //       <Item
-    //         key={list.id}
-    //         item={list}
-    //         handleDelete={this.props.handleDelete}
-    //       />
-    //     ))}
-    //   </ul>
-    // );
   }
 }
 
