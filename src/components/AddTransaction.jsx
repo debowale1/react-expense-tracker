@@ -12,17 +12,18 @@ class AddTransaction extends Component {
   };
 
   handleAddItem = (description, amount, dispatch) => {
-    const id = Math.floor(Math.random() * 1000000);
-    const type = +amount > 0 ? "inc" : "exp";
-    const newItem = {
-      id,
-      description,
-      amount: +amount,
-      type,
-    };
-    dispatch({ type: "ADD_ITEM", payload: newItem });
+    if (description !== "" && amount !== "" && amount !== 0) {
+      const id = Math.floor(Math.random() * 1000000);
+      const type = +amount > 0 ? "inc" : "exp";
+      const newItem = {
+        id,
+        description,
+        amount: +amount,
+        type,
+      };
+      dispatch({ type: "ADD_ITEM", payload: newItem });
+    }
     //clear field
-
     this.setState({
       description: "",
       amount: 0,
